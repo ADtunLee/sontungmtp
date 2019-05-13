@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Video</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8">
+          <table class="table table-hover">
+              <thead>
+                  <tr class="bg-success text-center">
+                      <td colspan="6"><a href="add"> Thêm video </a></td>
+                  </tr>
+                  <tr class="bg-primary">
+                      <th>ID</th>
+                      <th>Tiêu đề</th>
+                      <th>Mô tả</th>
+                      <th>Key</th>
+                      <th>Ảnh</th>
+                      <th>Edit - Delete</th>
+                  </tr>
+              </thead>
+              <tbody>
+                    <% data.rows.forEach(function(item){%>
+                        <tr>
+                            <td><%= item.id %></td>
+                            <td><%= item.tieude %></td>
+                            <td><%= item.mota %></td>
+                            <td><%= item.key %></td>
+                            <td><img width="130px" src="../upload/<%= item.image %>" alt=""></td>
+                            <td><a href="edit/<%= item.id %>"><span class="fa fa-edit">Edit</span></a> - <a onclick="return confirm('Are you sure?')" href="delete/<%= item.id %>"><span class="fa fa-remove">Delete</span></a></td>
+                        </tr>
+                    <%})%>
+              </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

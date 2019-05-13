@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>List Video</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 table-responsive">
+            <h2 class="bg-danger text-center"> Bảng sửa video </h2>
+            <form action="../edit/<%= data.id %>" method="POST" role="form" enctype="multipart/form-data">
+                <div class="form-group">
+                   <label for="form-title">Tiêu đề</label>
+                   <input type="text" class="form-control" id="tieude" name="tieude" value="<%= data.tieude %>" >
+                </div>
+
+                <div class="form-group">
+                    <label for="form-description">Mô tả</label>
+                    <textarea type="text" class="form-control" rows="5" id="mota" name="mota" ><%= data.mota %></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-key">Mã video</label>
+                    <input type="text" class="form-control" id="key" name="key" value="<%= data.key %>">
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-md-6">
+                        Ảnh cũ: <img width="130px" src="../../upload/<%= data.image %>" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="btn btn-default btn-file">Ảnh mới: </label>
+                        <input type="file" name="uploadfile">
+                    </div>
+                </div>
+
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          
+      </div>
+    </div>
+</div>
+
+</body>
+</html>
